@@ -40,7 +40,7 @@ def visualize_model(model,dataloaders,device,class_names,num_images=6):
                 ax = plt.subplot(num_images//2, 2, images_so_far)
                 ax.axis('off')
                 ax.set_title('predicted: {}'.format(class_names[preds[j]]))
-                imshow(inputs.cpu().data[j])
+                imshow(inputs.cpu().data[j],mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 
                 if images_so_far == num_images:
                     model.train(mode=was_training)
